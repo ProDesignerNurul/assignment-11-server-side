@@ -1,34 +1,21 @@
 [
     {
       "id": "01",
-      "name": "Breaking News"
+      "name": "Ride-sharing is an innovative on-demand transport service that aims",
+      "img": "https://i.ibb.co/jzPKwHZ/img3.jpg",
+      "details": "Ride-sharing is an innovative on-demand transport service that aims to promote sustainable transport, reduce car utilization, increase vehicle occupancy and public transport ridership. By reviewing ride-sharing studies around the world, this paper aims to map major aspects of ride-sharing, including online platforms, user factors and barriers that affect ride-sharing services, and extract useful insights regarding their successful implementation."
     },
     {
       "id": "02",
-      "name": "Regular News"
+      "name": "A systematic literature review of ride-sharing platforms",
+      "img": "https://i.ibb.co/0YtsxSV/img6.jpg",
+      "details": "A systematic literature review is conducted on scientific publications in English language. Articles are eligible if they report a study on user factors affecting ride-sharing use and/or barriers preventing ride-sharing implementation; ride-sharing online platforms in these articles are also recorded and are further explored through their official websites. A database is built that organizes articles per author, year and location, summarizes online platform attributes, and groups user factors associated with the likelihood to ride-share."
     },
     {
       "id": "03",
-      "name": "International News"
-    },
-    {
-      "id": "04",
-      "name": "Sports"
-    },
-    {
-      "id": "05",
-      "name": "Entertainment"
-    },
-    {
-      "id": "06",
-      "name": "Culture"
-    },
-    {
-      "id": "07",
-      "name": "Arts"
-    },
-    {
-      "id": "08",
-      "name": "All News"
+      "name": "Ride-sharing aims to minimize negative impacts related to emissions",
+      "img": "https://i.ibb.co/fDmGp6T/img7.jpg",
+      "details": "The review shows that the term “ride-sharing” is used in the literature for both profit and non-profit ride-sharing services. In total, twenty-nine ride-sharing online platforms are recorded and analyzed according to specific characteristics. Sixteen user factors related to the likelihood to ride-share are recorded and grouped into sociodemographic, location and system factors. While location and system factors are found to follow a pattern among studies, mixed findings are recorded on the relationship between sociodemographic factors and ride-sharing. Factors that may hinder the development of ride-sharing systems are grouped into economic, technological, business, behavioral and regulatory barriers."
     }
+    
   ]
