@@ -24,16 +24,17 @@ async function run() {
   const serviceCollection = client.db('nurulRideShare').collection('rideServices');
   const allServices = client.db('nurulRideShare').collection('allServices');
 
-  app.get('/allservices/:id', (req, res) => {
-    const id = req.params.id;
-    const selectedService = allServices.find( service => service._id  == id);
-    res.send(selectedService);
+  app.get('/sixservices', async (req, res) => {
+    const query = {};
+    const cursor = serviceCollection.find(query);
+    const services = await cursor.toArray();
+    res.send(services);
   })
 
   app.get('/services', async (req, res) => {
     const query = {};
     const cursor = serviceCollection.find(query);
-    const services = await cursor.toArray();
+    const services = await cursor.limit(3).toArray();
     res.send(services);
   })
 }
