@@ -25,13 +25,14 @@ async function run(){
 
   try{
     const allServices = client.db('nurulRideShare').collection('allServices');
+    const userReview = client.db('nurulRideShare').collection('review');
 
     app.get('/services', async (req, res) => {
       const query = {};
       const cursor = allServices.find(query);
       const services = await cursor.limit(3).toArray();
       res.send(services);
-    })
+    });
 
 
     app.get('/all-services', async (req, res) => {
@@ -39,7 +40,7 @@ async function run(){
       const cursor = allServices.find(query);
       const services = await cursor.toArray();
       res.send(services);
-    })
+    });
 
 
     app.get('/services/:id', async (req, res) => {
@@ -47,7 +48,15 @@ async function run(){
       const query = { _id: ObjectId(id)};
       const service = await allServices.findOne(query);
       res.send(service);
-    })
+    });
+
+
+    // user review 
+    app.post('/review', async (req, res) => {
+      const review = req.body;
+      const result = await userReview.insertOne(review);
+      res.send(result);
+    });
 
 
   }
