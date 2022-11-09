@@ -20,31 +20,70 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 
 
-async function run() {
-  const serviceCollection = client.db('nurulRideShare').collection('rideServices');
-  const allServices = client.db('nurulRideShare').collection('allServices');
 
-  app.get('/sixservices', async (req, res) => {
-    const query = {};
-    const cursor = serviceCollection.find(query);
-    const services = await cursor.toArray();
-    res.send(services);
-  })
+async function run(){
 
-  app.get('/servicedetails/:id', (req, res) => {
-    const id = req.params.id;
-    const serviceDetails = allServices.find( service => service._d === ObjectId(id));
-    res.send(serviceDetails);
-  })
+  try{
+    const allServices = client.db('nurulRideShare').collection('allServices');
 
-  app.get('/services', async (req, res) => {
-    const query = {};
-    const cursor = serviceCollection.find(query);
-    const services = await cursor.limit(3).toArray();
-    res.send(services);
-  })
+    app.get('/services', async (req, res) => {
+      const query = {};
+      const cursor = allServices.find(query);
+      const services = await cursor.limit(3).toArray();
+      res.send(services);
+    })
+
+
+    app.get('/services/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id)};
+      const service = await allServices.findOne(query);
+      res.send(service);
+    })
+
+
+  }
+
+  finally{
+
+  }
+
 }
+
 run().catch(err => console.error(err))
+
+
+
+
+
+
+
+
+// async function run() {
+//   const serviceCollection = client.db('nurulRideShare').collection('rideServices');
+//   const allServices = client.db('nurulRideShare').collection('allServices');
+
+//   app.get('/sixservices', async (req, res) => {
+//     const query = {};
+//     const cursor = serviceCollection.find(query);
+//     const services = await cursor.toArray();
+//     res.send(services);
+//   })
+
+//   app.get('/servicedetails/:id', (req, res) => {
+//     const id = req.params.id;
+//     const serviceDetails = allServices.find( service => service._d === id);
+//     res.send(serviceDetails);
+//   })
+
+//   app.get('/services', async (req, res) => {
+//     const query = {};
+//     const cursor = serviceCollection.find(query);
+//     const services = await cursor.limit(3).toArray();
+//     res.send(services);
+//   })
+// }
+// run().catch(err => console.error(err))
 
 
 
